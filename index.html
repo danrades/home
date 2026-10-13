@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danrades | Meine Seiten</title>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; background: white; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); overflow: hidden; }
+        header { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 50px 30px; text-align: center; }
+        header h1 { font-size: 2.5em; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; gap: 15px; }
+        header p { font-size: 1.2em; opacity: 0.9; max-width: 600px; margin: 0 auto; }
+        .main-content { padding: 40px 30px; }
+        .section-title { text-align: center; margin-bottom: 30px; }
+        .section-title h2 { color: #2c3e50; font-size: 1.8em; margin-bottom: 10px; display: flex; align-items: center; justify-content: center; gap: 12px; }
+        .section-title p { color: #7f8c8d; font-size: 1em; }
+        .tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+        .tool-card { background: #f8f9fa; border: 2px solid #ecf0f1; border-radius: 15px; padding: 30px; text-align: center; transition: all 0.3s; text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        .tool-card:hover { border-color: #3498db; background: #ebf5fb; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(52, 152, 219, 0.2); }
+        .tool-card .icon { font-size: 3em; color: #3498db; }
+        .tool-card h3 { color: #2c3e50; font-size: 1.4em; }
+        .tool-card p { color: #7f8c8d; font-size: 0.95em; line-height: 1.5; }
+        .tool-card .btn { background: #3498db; color: white; padding: 10px 20px; border-radius: 8px; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; transition: all 0.3s; margin-top: auto; }
+        .tool-card:hover .btn { background: #2980b9; }
+        .tool-card.red .icon { color: #e74c3c; }
+        .tool-card.red .btn { background: #e74c3c; }
+        .tool-card.red:hover { border-color: #e74c3c; background: #fdedec; box-shadow: 0 10px 30px rgba(231, 76, 60, 0.2); }
+        .tool-card.red:hover .btn { background: #c0392b; }
+        .tool-card.green .icon { color: #27ae60; }
+        .tool-card.green .btn { background: #27ae60; }
+        .tool-card.green:hover { border-color: #27ae60; background: #eafaf1; box-shadow: 0 10px 30px rgba(39, 174, 96, 0.2); }
+        .tool-card.green:hover .btn { background: #229954; }
+        .tool-card.purple .icon { color: #9b59b6; }
+        .tool-card.purple .btn { background: #9b59b6; }
+        .tool-card.purple:hover { border-color: #9b59b6; background: #f5eef8; box-shadow: 0 10px 30px rgba(155, 89, 182, 0.2); }
+        .tool-card.purple:hover .btn { background: #8e44ad; }
+        .tool-card.orange .icon { color: #f39c12; }
+        .tool-card.orange .btn { background: #f39c12; }
+        .tool-card.orange:hover { border-color: #f39c12; background: #fef5e7; box-shadow: 0 10px 30px rgba(243, 156, 18, 0.2); }
+        .tool-card.orange:hover .btn { background: #e67e22; }
+        .info-section { background: #f8f9fa; border-radius: 15px; padding: 30px; margin-top: 40px; border-left: 4px solid #3498db; }
+        .info-section h3 { color: #2c3e50; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .info-section ul { list-style: none; padding-left: 0; }
+        .info-section li { padding: 8px 0; color: #555; display: flex; align-items: center; gap: 10px; }
+        .info-section li i { color: #27ae60; flex-shrink: 0; }
+        .add-hint { background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 10px; padding: 20px; margin-top: 30px; color: #856404; }
+        .add-hint h4 { margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+        .add-hint code { background: #f8f9fa; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; }
+        footer { background: #ecf0f1; padding: 25px; text-align: center; color: #7f8c8d; font-size: 0.9em; display: flex; flex-direction: column; gap: 8px; align-items: center; }
+        footer p { display: flex; align-items: center; gap: 8px; justify-content: center; }
+        footer a { color: #3498db; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; }
+        footer a:hover { text-decoration: underline; }
+        @media (max-width: 600px) { header h1 { font-size: 1.8em; flex-direction: column; } .main-content { padding: 25px 15px; } .tools-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <i data-lucide="graduation-cap" style="width: 40px; height: 40px;"></i>
+                Danrades – Meine Seiten
+            </h1>
+            <p>Übersicht aller Learning Tools und Projekte – gehostet auf GitHub Pages</p>
+        </header>
+
+        <div class="main-content">
+            <div class="section-title">
+                <h2>
+                    <i data-lucide="layout-grid"></i>
+                    Meine Tools
+                </h2>
+                <p>Wähle ein Tool aus, um es zu öffnen</p>
+            </div>
+
+            <div class="tools-grid" id="tools-grid">
+                <!-- ============================================ -->
+                <!-- HIER NEUE LINKS EINFÜGEN (Template unten)   -->
+                <!-- ============================================ -->
+
+                <!-- Beispiel 1: LearningApp -->
+                <a href="https://danrades.github.io/learningapp-1945/" class="tool-card red" target="_blank">
+                    <div class="icon">
+                        <i data-lucide="book-open"></i>
+                    </div>
+                    <h3>LearningApp: 1945</h3>
+                    <p>Interaktive LearningApp zum Thema „Kriegsende und Frieden nach dem Zweiten Weltkrieg" – 6 Übungen.</p>
+                    <div class="btn">
+                        <i data-lucide="external-link"></i>
+                        App öffnen
+                    </div>
+                </a>
+
+                <!-- Beispiel 2: QR Code Generator -->
+                <a href="https://danrades.github.io/qrcode/qr-generator.html" class="tool-card green" target="_blank">
+                    <div class="icon">
+                        <i data-lucide="qr-code"></i>
+                    </div>
+                    <h3>QR Code Generator</h3>
+                    <p>Erstelle individuelle QR Codes mit Einstellungen für Farben, Eckenradien, Größe und mehr.</p>
+                    <div class="btn">
+                        <i data-lucide="external-link"></i>
+                        Generator öffnen
+                    </div>
+                </a>
+
+                <!-- ============================================ -->
+                <!-- NEUE LINKS HIER EINFÜGEN                     -->
+                <!-- ============================================ -->
+
+            </div>
+
+            <div class="add-hint">
+                <h4>
+                    <i data-lucide="lightbulb"></i>
+                    Neuen Link hinzufügen
+                </h4>
+                <p>Kopiere den folgenden Block und füge ihn oberhalb des Kommentars <code>&lt;!-- NEUE LINKS HIER EINFÜGEN --&gt;</code> ein. Ersetze <code>URL</code>, <code>ICON-NAME</code>, <code>TITEL</code>, <code>BESCHREIBUNG</code> und optional die Farbe (red, green, purple, orange).</p>
+                <pre style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px; overflow-x: auto; font-size: 0.85em;"><code>&lt;a href="URL" class="tool-card red" target="_blank"&gt;
+    &lt;div class="icon"&gt;
+        &lt;i data-lucide="ICON-NAME"&gt;&lt;/i&gt;
+    &lt;/div&gt;
+    &lt;h3&gt;TITEL&lt;/h3&gt;
+    &lt;p&gt;BESCHREIBUNG&lt;/p&gt;
+    &lt;div class="btn"&gt;
+        &lt;i data-lucide="external-link"&gt;&lt;/i&gt;
+        Öffnen
+    &lt;/div&gt;
+&lt;/a&gt;</code></pre>
+            </div>
+
+            <div class="info-section">
+                <h3>
+                    <i data-lucide="info"></i>
+                    Über diese Seite
+                </h3>
+                <ul>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Alle Tools sind kostenlos und ohne Anmeldung nutzbar
+                    </li>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Optimiert für PC, Tablet und Smartphone
+                    </li>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Gehostet auf GitHub Pages – keine externen Server nötig
+                    </li>
+                    <li>
+                        <i data-lucide="check-circle"></i>
+                        Neue Links jederzeit bequem ergänzbar
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                <i data-lucide="github"></i>
+                Hosted on GitHub Pages | © 2026 Danrades
+            </p>
+            <p>
+                <a href="https://github.com/danrades" target="_blank">
+                    <i data-lucide="external-link"></i>
+                    GitHub Profil ansehen
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
